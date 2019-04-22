@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PostClient.Models;
+using PostClient.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,25 @@ namespace PostClient
     {
         public MainWindow()
         {
+            PostService post;
+            string login;
+            string pass;
+
+            //Login loginForm = new Login();
+            //loginForm.ShowDialog();
+            //if (loginForm.DialogResult != true)
+            //    Close();
+            //else
+            //{
+            //    post = loginForm.postService;
+            //    login = loginForm.Log;
+            //    pass = loginForm.Pass;
+            //}
+
             InitializeComponent();
+
+            ImapPage imapPage = new ImapPage();
+            //Content = imapPage;
         }
     }
 }

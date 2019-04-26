@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace PostClient
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : MetroWindow
     {
         List<PostService> services;

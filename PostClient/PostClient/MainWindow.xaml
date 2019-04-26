@@ -1,15 +1,56 @@
-﻿<Window x:Class="PostClient.MainWindow"
+﻿<Metro:MetroWindow x:Class="PostClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PostClient"
+        xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Beige">
     <Grid>
         <TabControl Margin="5 2">
-            <TabItem  Background="Yellow">
-            
+            <TabItem Header="Send Message">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="To whom:" Style="{StaticResource FieldHeader}"/>
+                        <TextBlock Grid.Row="1" Style="{StaticResource FieldHeader}" Text="Subject:"/>
+                        <TextBlock Grid.Row="2" Style="{StaticResource FieldHeader}" Text="Message Text:"/>
+                        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource AppBtn}"
+                                Content="Attach file" Click="Button_Click"/>
+
+                        <TextBox Grid.Column="1" Style="{StaticResource FieldContent}"
+                                 Name="Address" TextChanged="Address_TextChanged" />
+
+                        <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource FieldContent}"
+                                 Name="Subject" TextChanged="Subject_TextChanged" />
+                        <TextBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Name="Message" TextChanged="Subject_TextChanged"
+                                 Style="{StaticResource FieldMsgContent}"/>
+                        <TextBlock Grid.Column="2" Grid.Row="4" Name="Attachment"/>
+                        <Button Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" 
+                                Style="{StaticResource SendBtn}" Name="SendBtn" Content="SEND" Click="SendBtn_Click" />
+
+                        <TextBlock Grid.Column="2" Name="MailErr" Style="{StaticResource ErrorInMain}" />
+                        <TextBlock Grid.Column="2" Grid.Row="1" Name="SubjectWarn" Style="{StaticResource Warning}" />
+                        <TextBlock Grid.Column="2" Grid.Row="2" Name="TextWarn" Style="{StaticResource Warning}" />
+                    </Grid>
+                    
+                </TabItem.Content>
+            </TabItem>
+            <!--<TabItem x:Name="tabletsTab" Header="Messages in Box">
                 <TabItem.Content>
                     <StackPanel>
                         <RadioButton IsChecked="True">iPhone S6</RadioButton>
@@ -17,14 +58,9 @@
                         <RadioButton>Lumia 550</RadioButton>
                     </StackPanel>
                 </TabItem.Content>
-            </TabItem>
-            <TabItem x:Name="tabletsTab">
-                <TabItem.Header>
-                    <TextBlock Background="Green">Планшеты</TextBlock>
-                </TabItem.Header>
-            </TabItem>
+            </TabItem>-->
         </TabControl>
 
     </Grid>
 
-</Window>
+</Metro:MetroWindow>
